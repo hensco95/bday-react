@@ -6,31 +6,33 @@ const App = () => {
   // console.log(people.length);
 
   return (
-    <div>
-      <h1>{people.length} Birthdays Today</h1>
-      {people.map((person) => {
-        const { id, age, name, image } = person;
+    <main>
+      <secion className="container">
+        <h3>{people.length} Birthdays Today</h3>
+        {people.map((person) => {
+          const { id, age, name, image } = person;
 
-        return (
-          <div key={id}>
-            <img src={image} alt={name} />
-            <div>
-              <h3>{name}</h3>
-              <p>{age}</p>
-            </div>
-          </div>
-        );
-      })}
-      <button
-        type="button"
-        onClick={() => {
-          setPeople([]);
-        }}
-        className="btn"
-      >
-        Clear All
-      </button>
-    </div>
+          return (
+            <article key={id} className="person">
+              <img src={image} alt={name} className="img"/>
+              <div>
+                <h4>{name}</h4>
+                <p>{age} years</p>
+              </div>
+            </article>
+          );
+        })}
+        <button
+          className="btn btn-block"
+          type="button"
+          onClick={() => {
+            setPeople([]);
+          }}
+        >
+          Clear All
+        </button>
+      </secion>
+    </main>
   );
 };
 export default App;
